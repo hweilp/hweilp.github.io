@@ -12,31 +12,84 @@
 
     <!-- style -->
     <link href="static/css/com.css" rel="stylesheet" type="text/css">
+    <link href="static/lib/swiper/css/swiper.min.css" rel="stylesheet" type="text/css">
     <link href="static/css/index.css" rel="stylesheet" type="text/css">
     <!-- style -->
 
+    <!-- javascript -->
+    <script src="static/lib/jquery-1.7.1.min.js" type="application/javascript"></script>
+    <script src="static/lib/swiper/js/swiper.min.js" type="application/javascript"></script>
+    <script src="static/js/index.js" type="application/javascript"></script>
+    <!-- javascript -->
 
 </head>
 <body>
-<header>
-    <span>欢迎来到 天宇星宇 的个人博客 </span>
-    <a href="https://github.com/hwhtml"> github 主页</a>
-</header>
+<!--<header>-->
+    <!--<span>欢迎来到 天语星宇 的个人博客 </span>-->
+    <!--<a href="https://github.com/hwhtml"> github 主页</a>-->
+<!--</header>-->
 
-<div class="c-container clear-fix" id="main-container">
-    <div class="c-main-left fl c-box">
-        <div class="c-special-introduction">特别介绍</div>
-        <ul class="intr-info c-box">
-            <li> <span>专属大名:</span> <span>天宇星宇</span></li>
-            <li> <span>享受时间:</span> <span id="share-time">24年06月30天</span></li>
-            <li> <span>专属大名:</span> <span>天宇星宇</span></li>
+
+<header class="c-container c-box">
+    <div class="c-content clear-fix">
+        <div class="logo fl">
+            <a href="index.html"><img src="static/logo.png" alt=""></a>
+        </div>
+        <ul class="fr">
+            <li class="fl active"><a href="index.html">首页</a></li>
+            <li class="fl"><a href="index.html">前端技术</a></li>
+            <li class="fl"><a href="index.html">案例</a></li>
+            <li class="fl"><a href="index.html">笔记</a></li>
+            <li class="fl"><a href="index.html">关于我</a></li>
+            <li class="fl"><a href="pages/other.html">其他</a></li>
         </ul>
     </div>
-    <div class="c-main-center fl">
+   
+</header>
 
-    </div>
-    <div class="c-main-right fr c-box">
+<!-- banner -->
+<section class="c-container">
+        <div class="banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
 
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev swiper-button-black"></div>
+                <div class="swiper-button-next swiper-button-black"></div>
+            </div>
+        </div>
+</section>
+
+<!-- main -->
+<div class="c-container" id="main-container">
+    <div class="c-content clear-fix">
+        <div class="c-main-center fl">
+            <div class="title">个人推荐</div>
+            <ul class="recommend clear-fix" id="recommend">
+
+            </ul>
+
+            <div class="title">最新发布</div>
+            <ul class="latest-release">
+                <li>
+                    <a href="">
+                        
+                    </a>
+                </li>
+            </ul>
+
+            <div class="title">友情链接</div>
+            <ul class="link clear-fix" id="link">
+
+            </ul>
+        </div>
+        <div class="c-main-right fr c-box">
+            <div class="date" id="date"></div>
+        </div>
     </div>
 </div>
 
