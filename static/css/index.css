@@ -79,6 +79,53 @@
   height: 100%;
 }
 
+.latest-release li{
+  height: 150px;
+  margin-bottom: 10px;
+}
+.latest-release li:last-child{
+  margin-bottom: 0;
+}
+.latest-release a{
+  display: inline-block;
+  background: white;
+  padding: 10px;
+  line-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: all .5s ease;
+  border-left:2px  solid white;
+}
+.latest-release a:hover{
+  background: rgba(215, 216, 228,1);
+  border-left-color: rgba(95, 124, 152,1);
+}
+.latest-release a img{
+  width: 26%;
+  height: 100%;
+}
+.latest-release a .text{
+  height: 100%;
+  width: 72%;
+  color: #333333;
+}
+.latest-release a h3{
+  height: 30px;
+}
+.latest-release a .desc {
+  height: 60px;
+  overflow: hidden;
+}
+.latest-release a .date {
+  height: 30px;
+  overflow: hidden;
+}
+
+
 
 .link{
   background: white;
