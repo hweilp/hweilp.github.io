@@ -2,7 +2,7 @@
   height: 400px;
 }
 .c-main-center{
-  width:980px;
+  width:950px;
 }
 .c-main-center .title:first-child{
   margin-top: 0;
@@ -32,7 +32,7 @@
 }
 .recommend a{
   display: block;
-  width: 320px;
+  width: 310px;
   height:200px;
   overflow: hidden;
   position: relative;
@@ -124,6 +124,47 @@
   height: 30px;
   overflow: hidden;
 }
+
+
+.c-main-right .title{
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  background: white;
+  border-radius: 3px 3px 0 0;
+}
+.c-main-right .date{
+  background: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0 10px ;
+}
+
+.technical-label ul{
+  padding:0 10px;
+  margin: 10px 0;
+  background: white;
+}
+.technical-label ul li a{
+  margin:10px 5px;
+  color: #333333;
+
+}
+
+.technical-label ul li a:hover{
+  color: rgba(0, 180, 255,1);
+}
+
+.hot-articles ul{
+  padding:0 10px;
+  margin: 10px 0;
+  background: white;
+}
+.hot-articles ul a{
+  color: #333333;
+}
+
 
 
 

@@ -14,12 +14,13 @@
     <link href="static/css/com.css" rel="stylesheet" type="text/css">
     <link href="static/lib/swiper/css/swiper.min.css" rel="stylesheet" type="text/css">
     <link href="static/css/index.css" rel="stylesheet" type="text/css">
+    <link href="static/lib/calendar/flexoCalendar.css" rel="stylesheet" type="text/css">
     <!-- style -->
 
     <!-- javascript -->
     <script src="static/lib/jquery-1.7.1.min.js" type="application/javascript"></script>
     <script src="static/lib/swiper/js/swiper.min.js" type="application/javascript"></script>
-    <script src="static/js/index.js" type="application/javascript"></script>
+    <script src="static/lib/calendar/FlexoCalendar.js" type="application/javascript"></script>
     <!-- javascript -->
 
 </head>
@@ -84,11 +85,43 @@
             </ul>
         </article>
         <aside class="c-main-right fr c-box">
-            <div class="date">
-                <p>当前时间</p>
-                <p id="date"></p>
-                <p id="time"></p>
-                <p id="week"></p>
+            <div class="title">当前时间</div>
+            <div class="date c-box">
+                <p id="date">
+                    <span>日期 :</span>
+                    <span id="year">2018</span> 年
+                    <span id="month">05</span> 月
+                    <span id="day">30</span> 日
+                </p>
+                <p id="time">
+                    <span>时间 :</span>
+                    <span id="hours">02</span> 时
+                    <span id="min">20</span> 分
+                    <span id="sec">45</span> 秒
+                </p>
+                <p id="week">
+                    <span>星期 : 周</span>
+                    <span id="weekdays">一</span>
+                </p>
+            </div>
+            <div class="title">万年历</div>
+            <div class="calendar">
+                <div class="calendar-wrapper">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+
+            <div class="title">技术标签</div>
+            <div class="technical-label">
+                <ul id="technical-label" class="clear-fix c-box">
+
+                </ul>
+            </div>
+            <div class="title">热门文章</div>
+            <div class="hot-articles">
+                <ul id="hot-articles" class="c-box">
+
+                </ul>
             </div>
         </aside>
     </div>
@@ -100,6 +133,7 @@
 
 <!-- javascript -->
 <script src="static/js/com.js" type="application/javascript"></script>
+<script src="static/js/index.js" type="application/javascript"></script>
 <!-- javascript -->
 
 </body>

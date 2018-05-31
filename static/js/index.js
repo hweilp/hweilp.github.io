@@ -22,7 +22,8 @@ $(document).ready(function () {
 							prevEl: '.swiper-button-prev'
 						},
 						pagination: {
-							el: '.swiper-pagination'
+							el: '.swiper-pagination',
+							clickable :true
 						}
 					})
 				},
@@ -116,26 +117,76 @@ $(document).ready(function () {
 
 			setInterval(function () {
 				nowDate.year = new Date().getFullYear();
-				nowDate.month = new Date().getMonth()+1  > 10 ? "0" + new Date().getMonth()+1: new Date().getMonth()+1;
+				nowDate.month = Number(new Date().getMonth()+1)  < 10 ? "0" + Number(new Date().getMonth()+1): new Date().getMonth()+1;
 				nowDate.day = Number(new Date().getDate()) < 10 ? "0" + new Date().getDate() : new Date().getDate();
 				nowDate.hours = Number(new Date().getHours()) < 10 ? "0" + new Date().getHours() : new Date().getHours();
 				nowDate.min = Number(new Date().getMinutes()) < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes();
 				nowDate.sec = Number(new Date().getSeconds()) < 10 ? "0" + new Date().getSeconds() : new Date().getSeconds();
 				nowDate.week = new Date().getDay();
 
-				var Html = '';
 				if(type == 'date'){
-					Html = nowDate.year + '年' + nowDate.month + '月' + nowDate.day + '日'
+					obj.find('#year').html(nowDate.year);
+					obj.find('#month').html(nowDate.month);
+					obj.find('#day').html(nowDate.day);
 				}
 				if(type == 'time'){
-					Html = nowDate.hours + '时' + nowDate.min + '分' + nowDate.sec + '秒'
+					obj.find('#hours').html(nowDate.hours);
+					obj.find('#min').html(nowDate.min);
+					obj.find('#sec').html(nowDate.sec);
 				}
 				if(type == 'week'){
-					Html = '星期' + weekdays[nowDate.week]
+					obj.find('#weekdays').html( weekdays[nowDate.week]);
 				}
-				obj.html(Html);
 				return nowDate;
 			},1000)
+		},
+
+		Calendar : function (obj,params) {
+			var ObjEl = obj ? obj : $('#calendar');
+			var  Params =  params ? params : {
+				setYear : new Date().getFullYear(),
+				setMonth : Number(new Date().getMonth()+1),
+				selectDate: 'each-each-each'
+			};
+			ObjEl.flexoCalendar(Params);
+		},
+
+		TechnicalLabel : function (obj) {
+			$.ajax({
+				type:'get',
+				url :'static/json/technical_label.json',
+				dataType:'json',
+				success : function (res) {
+					var result = res.list;
+					var Html = '';
+					for ( var i = 0 ; i < result.length; i ++ ){
+						Html += '<li class="fl"><a target="_blank" href="'+ result[i].url +'">' +result[i].title  + '</a></li>'
+					}
+					obj.html(Html);
+				},
+				error : function (err) {
+					console.log(err)
+				}
+			})
+		},
+
+		HotArticles : function (obj) {
+			$.ajax({
+				type:'get',
+				url :'static/json/hot_articles.json',
+				dataType:'json',
+				success : function (res) {
+					var result = res.list;
+					var Html = '';
+					for ( var i = 0 ; i < result.length; i ++ ){
+						Html += '<li><a target="_blank" href="'+ result[i].url +'">' +result[i].title  + '</a></li>'
+					}
+					obj.html(Html);
+				},
+				error : function (err) {
+					console.log(err)
+				}
+			})
 		}
 	};
 
@@ -157,4 +208,14 @@ $(document).ready(function () {
 	new Index.TodayTime($('#time'),'time');
 	// 今日星期
 	new Index.TodayTime($('#week'),'week');
+
+	// 日历
+	new Index.Calendar();
+
+	// 技术标签
+	new Index.TechnicalLabel($('#technical-label'));
+
+	// 热门文章
+	new Index.HotArticles($('#hot-articles'));
+
 });
