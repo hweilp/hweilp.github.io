@@ -1,0 +1,124 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td ,textarea { margin:0; padding:0;  }
+address,cite,dfn,em,var, i {font-style:normal;}
+html{height: 100%;width: 100%; }
+body {height: 100%;width: 100%; font-size: 14px; line-height: 28px; font-family:'Microsoft Yahei','simsun','arial','tahoma';}
+table { border-collapse:collapse; border-spacing:0; }
+h1, h2, h3, h4, h5, h6, th {font-weight: normal; }
+button,input,select,textarea{font-size:100%;}
+fieldset,img{border:0;}
+a { text-decoration: none; color: rgba(0, 180, 255,1); background: none }
+ul, ol , li { list-style: none; }
+input{ -wekit-box-shadow:0 0 0 1000px white inset;}
+
+body{
+  background:rgb(240, 241, 242);
+}
+
+/*layout*/
+.c-container{
+  min-width: 1200px;
+}
+.c-content{
+  max-width: 1200px;
+  margin: auto;
+}
+/*layout*/
+
+/* functions */
+.clear-fix{ clear: both; content: ""; display: block; overflow: hidden }
+.clear{clear: both;}
+.fl{ float: left; }
+.fr{ float: right;}
+.c-box{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* functions */
+
+/* com */
+#main-container{
+  padding: 60px 0;
+  min-width: 1200px;
+}
+.c-main-left{
+  min-height: 500px;
+  width: 200px;
+  padding: 10px 0;
+}
+.c-special-introduction{
+  color: rgba(0, 180, 255,1);
+}
+.intr-info {
+  font-size: 14px;
+  background: rgba(240, 241, 242,1);
+  border-radius: 4px;
+  padding:0 5px;
+}
+.share-time{}
+.c-main-center{
+  min-width: 770px;
+}
+.c-main-right{
+  min-height: 500px;
+  width: 230px;
+}
+/* com */
+
+header{
+  color: white;
+  overflow: hidden;
+  background: #333;
+  padding: 10px 0;
+}
+.logo a{
+  display: block;
+  width: 300px;
+  height: 50px;
+  position: relative;
+  top:1px;
+}
+.logo a img{
+  width: 100%;
+  height: 100%;
+}
+header ul{
+  position: relative;
+  top:12px;
+}
+header li:first-child{
+  margin-left: 0;
+}
+header li{
+  margin-left: 20px;
+}
+header li a{
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+}
+header li a:hover{
+  color: rgba(0, 180, 255,1);
+}
+header li.active a{
+  color: rgba(0, 180, 255,1);
+}
+
+.banner .swiper-pagination-bullet{
+  width: 30px;
+  height: 4px;
+  border-radius : 3px;
+}
+.banner .swiper-pagination-bullet-active{
+  background: rgba(10, 23, 35, 0.9);
+}
+footer {
+  max-width: 1200px;
+  margin: auto;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #333333;
+}
