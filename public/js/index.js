@@ -3,7 +3,7 @@ $(document).ready(function () {
 		Banner : function () {
 			$.ajax({
 				type : 'get',
-				url  : 'static/json/banner.json',
+				url  : 'json/banner.json',
 				success : function (res) {
 					var bannerList = res.banner_list;
 					var SwiperListHtml = '';
@@ -35,7 +35,7 @@ $(document).ready(function () {
 		Recommend : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'static/json/personal_recommend.json',
+				url :'json/personal_recommend.json',
 				success : function (res) {
 					var result = res.list;
 					var Html = '';
@@ -62,7 +62,7 @@ $(document).ready(function () {
 		LatestRelease : function(obj){
 			$.ajax({
 				type:'get',
-				url :'static/json/lastest_release.json',
+				url :'json/lastest_release.json',
 				success : function (res) {
 					var result = res.list;
 					var Html = '';
@@ -89,7 +89,7 @@ $(document).ready(function () {
 		FriendshipLink : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'static/json/friendship_link.json',
+				url :'json/friendship_link.json',
 				success : function (res) {
 					var result = res.list;
 					var Html = '';
@@ -154,7 +154,7 @@ $(document).ready(function () {
 		TechnicalLabel : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'static/json/technical_label.json',
+				url :'json/technical_label.json',
 				dataType:'json',
 				success : function (res) {
 					var result = res.list;
@@ -173,7 +173,7 @@ $(document).ready(function () {
 		HotArticles : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'static/json/hot_articles.json',
+				url :'json/hot_articles.json',
 				dataType:'json',
 				success : function (res) {
 					var result = res.list;
@@ -187,7 +187,19 @@ $(document).ready(function () {
 					console.log(err)
 				}
 			})
-		}
+		},
+
+		SystemData : function () {
+			$.ajax({
+				type : "get",
+				url : '/system',
+        dataType :'json',
+        success : function (res) {
+          console.log(res);
+        },
+        error : function (err) {}
+			})
+    }
 	};
 
 	//banner
@@ -217,5 +229,8 @@ $(document).ready(function () {
 
 	// 热门文章
 	new Index.HotArticles($('#hot-articles'));
+
+	// 公共数据
+	new Index.SystemData()
 
 });

@@ -1,0 +1,13 @@
+var pageCtrl = {
+  IndexPage : function (req, res) {
+    res.render('page/index')
+  },
+  Register : function (req, res) {
+    res.render('register')
+  },
+  Login : function (req, res) {
+    res.render('page/login')
+  },
+};
+
+module.exports = pageCtrl;
