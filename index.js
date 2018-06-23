@@ -1,6 +1,7 @@
-var express = require("express");          //引入express模块
+var express = require("express"); //引入express模块
 var app = express();  //返回对象
 var path = require("path");
+var fs = require('fs');
 var logger = require('morgan');
 app.use(logger('dev')); //设置为开发者模式，显示日志
 var favicon = require('serve-favicon');
@@ -19,9 +20,25 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 
+var Router = require('./routes/api');
 
-var router = require('./routes');
+// 监听文件修改重新加载代码
+fs.watch(require.resolve('./routes/api.js'), function () {
+ cleanCache(require.resolve('./routes/api.js'));
+ try {
+  	Router = require('./routes/api.js');
+  	app.use(Router);
+ } catch (ex) {
+  	console.error('module update failed');
+ }
+});
 
-app.use('/', router);
+function cleanCache(modulePath) {
+ require.cache[modulePath] = null;
+}
+
+
+
+app.use('/', Router);
 
 app.listen(8081);
