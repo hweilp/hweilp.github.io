@@ -24,7 +24,7 @@ router.get('/register', WebPageCtrl.RegisterPage);
 router.get('/login', WebPageCtrl.LoginWebPage);
 
 // api
-router.get('/api/register', ApiCtrl.Register);
+router.post('/api/register', ApiCtrl.Register);
 router.get('/api/login', ApiCtrl.Login);
 router.get('/api/banner', ApiCtrl.GetBannerWeb);
 // router.get('/api/personal_recommend', Auth, ApiCtrl.getPersonal);

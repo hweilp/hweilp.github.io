@@ -45,8 +45,8 @@ $(document).ready(function () {
 					var Html = '';
 					for ( var i = 0 ; i < result.length; i ++ ){
 						Html += '<li class="fl">' +
-								'<a target="_blank" href="'+ result[i].url +'">' +
-									'<img src="'+ result[i].imgUrl +'" alt="">' +
+								'<a target="_blank" href="'+ result[i].href +'">' +
+									'<img src="'+ result[i].image +'" alt="">' +
 									'<div class="text">' +
 										'<h3>'+ result[i].title +'</h3>' +
 										'<p>'+ result[i].desc +'</p>' +

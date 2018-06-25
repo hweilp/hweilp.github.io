@@ -62,18 +62,49 @@
   <form>
     <div class="fileds"><h4>注册</h4></div>
 
-    <div class="fileds"><input type="text" placeholder="用户名"></div>
+    <div class="fileds"><input name="name" type="text" placeholder="用户名"></div>
 
-    <div class="fileds"><input type="password" placeholder="请输入密码"></div>
+    <div class="fileds"><input name="password" type="password" placeholder="请输入密码"></div>
 
     <div class="fileds"><input type="password" placeholder="请再次输入密码"></div>
 
-    <div class="fileds"><input type="button" value="注册"></div>
+    <div class="fileds"><input type="button" id="do-button" value="注册"></div>
 
   </form>
 </div>
 <script type="application/javascript">
   $('.register').height( document.body.offsetHeight - 100 );
+  $('#do-button').click(function () {
+    var name = $("input[name='name']").val();
+    var password = $("input[name='password']").val();
+    var postData = {
+      user_name : name,
+      password : password
+    }
+    if(name == '' || typeof name == undefined){
+      alert('请输入用户名！');
+      return;
+    }
+    if(password == '' || typeof password == undefined){
+      alert('请输入密码！');
+      return;
+    }
+
+    $.ajax({
+      type : 'POST',
+      url:'api/register',
+      data : postData,
+      success : function (res) {
+        console.log(res);
+        if(res.code == 200){
+          window.location.href = '/'
+        }
+      },
+      error : function (err) {
+        console.log(err)
+      }
+    })
+  })
 </script>
 
 

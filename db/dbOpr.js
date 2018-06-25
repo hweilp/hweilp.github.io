@@ -88,6 +88,8 @@ PG.prototype.save = function(tablename,fields,cb){
     num.push("$"+count);
   }
   str += field.join(",") +") values("+num.join(",")+")";
+
+  // SQL语句 INSERT INTO articles(title,"desc",content,image,href) VALUES ('VUE','值。','值','images/recommend/20180530163501.jpg','https://cn.vuejs.org/v2/guide/')
   clientHelper(str,value,cb);
 };
 
@@ -114,6 +116,8 @@ PG.prototype.update = function(tablename,mainfields,fields,cb) {
     value.push(mainfields[j]);
   }
   str += field.join(" and ");
+
+  // var sql = "INSERT INTO user_list(name,password) VALUES ('','')";
   clientHelper(str,value,cb);
 };
 
