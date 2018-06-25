@@ -231,6 +231,6 @@ $(document).ready(function () {
 	new Index.HotArticles($('#hot-articles'));
 
 	// 公共数据
-	new Index.SystemData()
+	// new Index.SystemData()
 
 });

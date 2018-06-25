@@ -1,0 +1,42 @@
+<%- include('../tpl/layout/head_top'); %>
+<!--<link rel="stylesheet" href="/Platform/css/home/index.css"/>-->
+<style type='text/css'>
+  .error-content{
+    width:100%;
+    height : 100%;
+    background : url('images/error_bg.png') no-repeat center;
+    background-size : cover;
+    position: relative;
+  }
+  .opr{
+    width: 110px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding-left: 15px;
+  }
+  .opr a {
+    line-height: 40px;
+    display: block;
+  }
+  .opr a:hover{
+    color: rgba(216, 52, 72, 1);
+  }
+</style>
+
+<%- include('../tpl/layout/head_bot'); %>
+
+
+<div class="error-content">
+  <div class="opr">
+    <a href="/">首页</a>
+    <a href="javascript:history.back();">返回上一页</a>
+  </div>
+</div>
+
+<%- include('../tpl/layout/footer_script'); %>
+<%- include('../tpl/layout/foot'); %>
