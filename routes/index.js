@@ -24,12 +24,15 @@ router.get('/register', WebPageCtrl.RegisterPage);
 router.get('/login', WebPageCtrl.LoginWebPage);
 
 // api
-router.get('/banner', ApiCtrl.GetBannerWeb);
-router.get('/personal_recommend', Auth, ApiCtrl.getPersonal);
-router.get('/lastest_release', ApiCtrl.getLastest);
-router.get('/friendship_link', ApiCtrl.getFriendshipLink);
-router.get('/technical_label', ApiCtrl.getTechnicalLabel);
-router.get('/hot_articles', ApiCtrl.getHotArticles);
+router.get('/api/register', ApiCtrl.Register);
+router.get('/api/login', ApiCtrl.Login);
+router.get('/api/banner', ApiCtrl.GetBannerWeb);
+// router.get('/api/personal_recommend', Auth, ApiCtrl.getPersonal);
+router.get('/api/personal_recommend', ApiCtrl.getPersonal);
+router.get('/api/lastest_release', ApiCtrl.getLastest);
+router.get('/api/friendship_link', ApiCtrl.getFriendshipLink);
+router.get('/api/technical_label', ApiCtrl.getTechnicalLabel);
+router.get('/api/hot_articles', ApiCtrl.getHotArticles);
 
 
 

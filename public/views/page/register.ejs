@@ -1,8 +1,83 @@
 <%- include('../tpl/layout/head_top'); %>
 <!--<link rel="stylesheet" href="/Platform/css/home/index.css"/>-->
-<%- include('../tpl/layout/head_bot'); %>
 
-<div>register</div>
+<style type="text/css">
+  .register{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: url("images/bg.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+  form{
+    position: absolute;
+    right:0;
+    left:0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    width: 30%;
+    overflow: hidden;
+    height: 320px;
+    max-height:500px;
+    background: #fafafa;
+    padding:20px;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .fileds{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .fileds:nth-last-child{
+    margin-bottom: 0;
+  }
+  .fileds h4{
+    color: #333333;
+    text-align: center;
+  }
+  input{
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ececec;
+    color: #333333;
+    padding:0 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 40px;
+    line-height:40px;
+  }
+</style>
+
+<%- include('../tpl/layout/head_bot'); %>
+<%- include('../tpl/layout/header'); %>
+
+<div class="register">
+  <form>
+    <div class="fileds"><h4>注册</h4></div>
+
+    <div class="fileds"><input type="text" placeholder="用户名"></div>
+
+    <div class="fileds"><input type="password" placeholder="请输入密码"></div>
+
+    <div class="fileds"><input type="password" placeholder="请再次输入密码"></div>
+
+    <div class="fileds"><input type="button" value="注册"></div>
+
+  </form>
+</div>
+<script type="application/javascript">
+  $('.register').height( document.body.offsetHeight - 100 );
+</script>
+
+
+<%- include('../tpl/layout/footer'); %>
 
 <!-- javascript -->
 

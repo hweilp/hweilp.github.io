@@ -6,11 +6,13 @@ html{height: 100%;width: 100%; }
 body {height: 100%;width: 100%; font-size: 14px; line-height: 28px; font-family:'Microsoft Yahei','simsun','arial','tahoma';}
 table { border-collapse:collapse; border-spacing:0; }
 h1, h2, h3, h4, h5, h6, th {font-weight: normal; }
-button,input,select,textarea{font-size:100%;}
+button,input,select,textarea{font-size:100%;outline: none;}
 fieldset,img{border:0;}
 a { text-decoration: none; color: rgba(0, 180, 255,1); background: none }
 ul, ol , li { list-style: none; }
 input{ -wekit-box-shadow:0 0 0 1000px white inset;}
+input[type=button]{background: rgba(216, 52, 72, 1);color: white;cursor: pointer;}
+input[type=button]:active{  background:  rgba(216, 52, 72, .9);  }
 
 body{
   background:rgb(240, 241, 242);
@@ -115,10 +117,11 @@ header li.active a{
   background: rgba(10, 23, 35, 0.9);
 }
 footer {
-  max-width: 1200px;
   margin: auto;
   height: 30px;
   line-height: 30px;
   text-align: center;
-  color: #333333;
+  background: #000000;
+  color:white;
+  width: 100%;
 }

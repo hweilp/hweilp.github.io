@@ -3,7 +3,7 @@ var Auth = function(req,res,next){
     code : -1,
     msg : '未登录',
     data : null
-  }
+  };
   res.send(result);
 
   // if (!req.session.PLAT_USER || !req.session.PLAT_USER.SESSION_ID) {

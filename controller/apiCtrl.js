@@ -1,4 +1,10 @@
 var ApiCtrl = {
+  Register : function (req,res) {
+
+  },
+  Login : function (req, res) {
+
+  },
   GetBannerWeb : function(req,res,next){
     var result = {
       code : 200,

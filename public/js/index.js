@@ -3,9 +3,9 @@ $(document).ready(function () {
 		Banner : function () {
 			$.ajax({
 				type : 'get',
-				url  : 'json/banner.json',
+				url  : '/api/banner',
 				success : function (res) {
-					var bannerList = res.banner_list;
+					var bannerList = res.data.banner_list;
 					var SwiperListHtml = '';
 					for (var i = 0; i < bannerList.length; i++){
 						SwiperListHtml += '<div class="swiper-slide"><a href="'+ bannerList[i].url +'"><img src="'+ bannerList[i].imgUrl +'" alt="' + bannerList[i].title  +'"></a></div>'
@@ -35,9 +35,13 @@ $(document).ready(function () {
 		Recommend : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'json/personal_recommend.json',
+				url :'/api/personal_recommend',
 				success : function (res) {
-					var result = res.list;
+					if(res.code == -1 ){
+						console.log(res.msg);
+						return;
+					}
+					var result = res.data.list;
 					var Html = '';
 					for ( var i = 0 ; i < result.length; i ++ ){
 						Html += '<li class="fl">' +
@@ -62,9 +66,9 @@ $(document).ready(function () {
 		LatestRelease : function(obj){
 			$.ajax({
 				type:'get',
-				url :'json/lastest_release.json',
+				url :'/api/lastest_release',
 				success : function (res) {
-					var result = res.list;
+					var result = res.data.list;
 					var Html = '';
 					for ( var i = 0 ; i < result.length; i ++ ){
 						Html += '<li>' +
@@ -89,9 +93,9 @@ $(document).ready(function () {
 		FriendshipLink : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'json/friendship_link.json',
+				url :'/api/friendship_link',
 				success : function (res) {
-					var result = res.list;
+					var result = res.data.list;
 					var Html = '';
 					for ( var i = 0 ; i < result.length; i ++ ){
 						Html += '<li class="fl"><a target="_blank" href="'+ result[i].url +'">' +result[i].title  + '</a></li>'
@@ -154,10 +158,10 @@ $(document).ready(function () {
 		TechnicalLabel : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'json/technical_label.json',
+				url :'/api/technical_label',
 				dataType:'json',
 				success : function (res) {
-					var result = res.list;
+					var result = res.data.list;
 					var Html = '';
 					for ( var i = 0 ; i < result.length; i ++ ){
 						Html += '<li class="fl"><a target="_blank" href="'+ result[i].url +'">' +result[i].title  + '</a></li>'
@@ -173,10 +177,10 @@ $(document).ready(function () {
 		HotArticles : function (obj) {
 			$.ajax({
 				type:'get',
-				url :'json/hot_articles.json',
+				url :'/api/hot_articles',
 				dataType:'json',
 				success : function (res) {
-					var result = res.list;
+					var result = res.data.list;
 					var Html = '';
 					for ( var i = 0 ; i < result.length; i ++ ){
 						Html += '<li><a target="_blank" href="'+ result[i].url +'">' +result[i].title  + '</a></li>'
