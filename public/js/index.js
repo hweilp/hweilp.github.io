@@ -49,7 +49,7 @@ $(document).ready(function () {
 									'<img src="'+ result[i].image +'" alt="">' +
 									'<div class="text">' +
 										'<h3>'+ result[i].title +'</h3>' +
-										'<p>'+ result[i].desc +'</p>' +
+										'<p>'+ result[i].describe +'</p>' +
 									'</div>' +
 								'</a>' +
 							'</li>'

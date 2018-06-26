@@ -125,3 +125,25 @@ footer {
   color:white;
   width: 100%;
 }
+
+
+.layer-popup{
+  width:30%;
+}
+.layer-popup .layui-layer-content{
+  text-align: center;
+  padding: 10px 0 ;
+}
+div.layer-popup-msg{
+  background: rgba(0, 0, 0, 0.26);
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.26);
+}
+.layer-popup-msg div.layui-layer-content{
+  background: rgba(0, 0, 0, 0.26);
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}

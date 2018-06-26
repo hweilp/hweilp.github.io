@@ -95,9 +95,13 @@
       url:'api/register',
       data : postData,
       success : function (res) {
-        console.log(res);
-        if(res.code == 200){
-          window.location.href = '/'
+        if(res.code == 2000){
+          layer.msg(res.msg,{time : 1000,skin:'layer-popup-msg'});
+          setTimeout(function () {
+            window.location.href = '/'
+          },1000)
+        }else {
+          layer.msg(res.msg,{time : 1000,skin:'layer-popup-msg'});
         }
       },
       error : function (err) {
