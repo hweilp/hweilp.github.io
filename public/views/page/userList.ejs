@@ -1,0 +1,122 @@
+<%- include('../tpl/layout/head_top'); %>
+<!--<link rel="stylesheet" href="/Platform/css/home/index.css"/>-->
+
+<style type="text/css">
+  .user-list{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin:20px 0;
+  }
+  .user-list .row{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .row .col-md-12{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+    display: flex;
+    justify-content: space-between;
+  }
+  .col-md-12:last-of-type{
+    margin-bottom: 0;
+  }
+  .col-md-12 span{
+    flex: 1;
+    text-align: center;
+
+  }
+
+</style>
+
+<%- include('../tpl/layout/head_bot'); %>
+<%- include('../tpl/layout/header'); %>
+
+<div class="user-list">
+  <div class="row">
+
+
+  </div>
+</div>
+<script type="application/javascript">
+  $('.user-list').height( document.body.offsetHeight - 140 );
+  $.ajax({
+    type : 'get',
+    url:'/api/user/list',
+    dataType : 'json',
+    success : function (res) {
+      if(res.code == 2000 ){
+        var Html = '<div class="col-md-12">' +
+          '<span>用户ID</span>' +
+          '<span>用户名</span>' +
+          '<span>用户密码</span>' +
+          '<span>用户状态</span>' +
+          '<span>用户头像</span>' +
+          '<span>用户分类</span>' +
+          '<span>创建时间</span>' +
+          '<span>操作</span>' +
+          '</div>';
+        var result = res.data.list;
+        for ( var i = 0 ; i < result.length; i ++ ){
+          Html += '<div class="col-md-12">' +
+                  '<span>'+ result[i].user_id + '</span>' +
+                  '<span>'+ result[i].user_name + '</span>' +
+                  '<span>'+ result[i].password + '</span>' +
+                  '<span>'+ result[i].status + '</span>' +
+                  '<span>'+ result[i].user_avatar + '</span>' +
+                  '<span>'+ result[i].type + '</span>' +
+                  '<span>'+ result[i].created_at + '</span>' +
+                  '<span><a href="javascript:void(0)" data-id='+ result[i].user_id +' class="edit">编辑</a><a href="javascript:void(0)" data-id='+ result[i].user_id +' class="delete">删除</a></span>' +
+            '</div>'
+        }
+        $('.row').html(Html);
+      }
+    },
+    error : function (err) {
+      console.log(err)
+    }
+  })
+
+  $(".row").on("click",".edit",function(){
+    window.location.href = '/user/detail/'+ $(this).attr('data-id');
+  });
+  $(".row").on("click",".delete",function(){
+    console.log($(this).attr('data-id'))
+    $.ajax({
+      type : 'post',
+      url : '/api/user/delete',
+      data : {
+        id : $(this).attr('data-id')
+      },
+      dataType : 'json',
+      success : function (res) {
+        if(res.code == 2000){
+          layer.msg(res.msg);
+          setTimeout(function () {
+            window.location.reload();
+          },1000)
+        }else {
+          layer.msg(res.msg);
+        }
+
+      },
+      error : function (err) {
+
+      }
+    })
+  });
+</script>
+
+
+<%- include('../tpl/layout/footer'); %>
+
+<!-- javascript -->
+
+<%- include('../tpl/layout/footer_script'); %>
+<%- include('../tpl/layout/foot'); %>

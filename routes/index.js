@@ -22,10 +22,16 @@ router.use(function (req,res,next){
 router.get('/', WebPageCtrl.IndexPage);
 router.get('/register', WebPageCtrl.RegisterPage);
 router.get('/login', WebPageCtrl.LoginWebPage);
+router.get('/user/list', WebPageCtrl.UserListPage);
+router.get('/user/detail/:id', WebPageCtrl.UserDetailPage);
 
 // api
 router.post('/api/register', ApiCtrl.Register);
 router.get('/api/login', ApiCtrl.Login);
+router.get('/api/user/list', ApiCtrl.UserList);
+router.get('/api/user/detail/:id', ApiCtrl.UserDetail);
+router.post('/api/user/delete', ApiCtrl.UserDelete);
+
 router.get('/api/banner', ApiCtrl.GetBannerWeb);
 // router.get('/api/personal_recommend', Auth, ApiCtrl.getPersonal);
 router.get('/api/personal_recommend', ApiCtrl.getPersonal);

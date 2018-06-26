@@ -28,6 +28,27 @@ var ApiCtrl = {
   Login : function (req, res) {
 
   },
+
+  UserList: function (req,res) {
+    var sql = "SELECT * FROM user_list ";
+    if(req.query.id){
+      sql += " where user_id = " + req.query.id
+    }
+    PgOpr(res,sql);
+  },
+  UserDetail : function (req, res) {
+
+    var sql = "SELECT * FROM user_list ";
+    if(req.params.id){
+      sql += " where user_id = " + req.params.id
+    }
+    PgOpr(res,sql);
+  },
+  UserDelete : function (req, res) {
+    var user_id = req.body.id;
+    var sql = 'delete from user_list where user_id=' + user_id;
+    PgOpr(res,sql);
+  },
   GetBannerWeb : function(req,res,next){
     var result = {
       code : 200,

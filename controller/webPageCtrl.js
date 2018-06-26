@@ -8,7 +8,12 @@ var WebPageCtrl = {
   LoginWebPage : function (req, res) {
     res.render('page/login')
   },
-
+  UserListPage : function (req, res) {
+    res.render('page/userList')
+  },
+  UserDetailPage : function (req, res) {
+    res.render('page/userDetail')
+  },
 
   ErrorPage : function (req,res) {
     res.render('page/error')
