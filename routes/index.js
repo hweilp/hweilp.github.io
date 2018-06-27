@@ -34,7 +34,7 @@ router.get('/api/login', ApiCtrl.Login);
 router.get('/api/user/list', ApiCtrl.UserList);
 router.get('/api/user/detail/:id', ApiCtrl.UserDetail);
 router.post('/api/user/delete', ApiCtrl.UserDelete);
-router.post('/api/user/edit', ApiCtrl.UserEdit);
+router.post('/api/user/edit',UploadMidd.single('file'), ApiCtrl.UserEdit);
 
 router.post('/api/upload', UploadMidd.single('file'),  ApiCtrl.FileUpload);
 

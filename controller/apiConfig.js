@@ -80,6 +80,7 @@ var apiConfig = {
     if(successCode){
       for(var name in apiConfig.successTips){
         if(successCode == apiConfig.successTips[name].successCode){
+          apiConfig.results.code = apiConfig.successTips[name].successCode;
           apiConfig.results.msg = apiConfig.successTips[name].msg;
         }
       }

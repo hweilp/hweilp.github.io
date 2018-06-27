@@ -32,6 +32,10 @@
     text-align: center;
 
   }
+  .avatarImg{
+    width: 50px;
+    height:40px;
+  }
 
 </style>
 
@@ -40,7 +44,6 @@
 
 <div class="user-list">
   <div class="row">
-
 
   </div>
 </div>
@@ -69,7 +72,7 @@
                   '<span>'+ result[i].user_name + '</span>' +
                   '<span>'+ result[i].password + '</span>' +
                   '<span>'+ result[i].status + '</span>' +
-                  '<span>'+ result[i].user_avatar + '</span>' +
+                  '<span><img class="avatarImg" src="'+ result[i].user_avatar + '"></span>' +
                   '<span>'+ result[i].type + '</span>' +
                   '<span>'+ result[i].created_at + '</span>' +
                   '<span><a href="javascript:void(0)" data-id='+ result[i].user_id +' class="edit">编辑</a><a href="javascript:void(0)" data-id='+ result[i].user_id +' class="delete">删除</a></span>' +

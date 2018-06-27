@@ -40,24 +40,14 @@ var ApiCtrl = {
       sql += ' where ';
       for(var name in req.query){
         if (count == Object.keys(req.query).length){
-          if(!isNaN(req.query[name])){
-            sql += name + "='" + req.query[name] + "'";
-          }else {
-            sql += name + "=" + req.query[name]
-          }
-
+          sql += name + "='" + req.query[name] + "'";
         }else {
-          if(!isNaN(req.query[name])){
-            sql += name + "='" + req.query[name] + "'" + " AND ";
-          }else {
-            sql += name + "=" + req.query[name] + " AND ";
-          }
+          sql += name + "='" + req.query[name] + "'" + " AND ";
         }
         count++;
 
       }
     }
-
     PgOpr(res,sql);
   },
   UserDetail : function (req, res) {
@@ -73,6 +63,8 @@ var ApiCtrl = {
     PgOpr(res,sql);
   },
   UserEdit : function (req, res) {
+    var hostPort = req.headers.origin;
+
     if(JSON.stringify(req.body) == "{}"){
       apiConfig.error(res, 1005);
       return;
@@ -81,21 +73,64 @@ var ApiCtrl = {
         apiConfig.error(res, 1006);
         return;
       }
-      var sql = "update user_list set ";
-      var sqlEnd = " where user_id= " + req.body.user_id;
-      var count = 1;
-      for(var name in req.body){
-        if(count == Object.keys(req.body).length){
-          sql += name + "='" + req.body[name] + "'";
 
-        }else {
-          sql += name + "='" + req.body[name] + "',";
+      if(typeof req.file == "undefined"){
+        console.log(2)
+        for(var name in req.body){
+          if(req.body[name] == 'undefined'){
+            delete req.body[name];
+          }
         }
-        count++;
+
+        var params = req.body;
+        var sql = "update user_list set ";
+        var sqlEnd = " where user_id=" + req.body.user_id;
+        var count = 1;
+        for(var name in params){
+          if(count == Object.keys(params).length){
+            sql += name + "='" + params[name] + "'";
+          }else {
+            sql += name + "='" + params[name] + "',";
+          }
+          count++;
+        }
+        sql += sqlEnd;
+        PgOpr(res,sql);
+      }else {
+        //获得文件的临时路径
+        var tmp_path = req.file.path;
+
+        // 指定文件上传后的目录
+        var target_path = './public/upload/' + req.file.filename;
+
+        // 移动文件
+        fs.rename(tmp_path, target_path, function(err) {
+          if (err) throw err;
+          // 删除临时文件夹文件,
+          fs.unlink(tmp_path, function () {
+            if (err) throw err;
+
+            var params = req.body;
+            params.user_avatar = hostPort + "/" + req.file.path;
+            var sql = "update user_list set ";
+            var sqlEnd = " where user_id=" + req.body.user_id;
+            var count = 1;
+            for(var name in params){
+              if(count == Object.keys(params).length){
+                sql += name + "='" + params[name] + "'";
+              }else {
+                sql += name + "='" + params[name] + "',";
+              }
+              count++;
+            }
+            sql += sqlEnd;
+            PgOpr(res,sql);
+          });
+        })
       }
-      sql += sqlEnd;
+
+
     }
-    PgOpr(res,sql);
   },
 
 
