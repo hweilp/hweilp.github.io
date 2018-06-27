@@ -3,8 +3,7 @@ var apiConfig = require('../controller/apiConfig');
 
 // 数据库操作函数
 var PgOpr = function (res,sql,oprCode) {
-  // params res response 请求返回函数  sql postgres数据库查询语句 oprCode 操作代码
-
+  // params res response 请求返回函数  sql postgres数据库查询语句 oprCode 操作代码/附带返回数据
   pgPool.connect(function (err, client, done) {
     if(err){
       res.send(err);
@@ -23,9 +22,14 @@ var PgOpr = function (res,sql,oprCode) {
       }else {
         // console.log(result);
         if(oprCode){
+          if(typeof oprCode == 'object'){
+            apiConfig.success(res,2000,oprCode);
+            return
+          }
           // 特别操作 根据对数据库操作 确定返回数据
           if(oprCode == 'register'){
             apiConfig.success(res,2001);
+            return
           }
         }else{
           // result.command 操作类型 select 查询 INSERT 添加数据

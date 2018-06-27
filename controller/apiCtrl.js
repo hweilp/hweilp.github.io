@@ -1,5 +1,8 @@
 var apiConfig = require('./apiConfig');
 var PgOpr = require('../db/dbOpr');
+var fs = require('fs');
+
+
 var ApiCtrl = {
   Register : function (req,res) {
     if(!req.body || req.body == undefined){
@@ -94,6 +97,46 @@ var ApiCtrl = {
     }
     PgOpr(res,sql);
   },
+
+
+  FileUpload: function (req, res) {
+
+    var hostPort = req.headers.origin;
+    if(!req.body.user_id || req.body.user_id == ''){
+      apiConfig.error(res,1005);
+      return;
+    }
+
+    //获得文件的临时路径
+    var tmp_path = req.file.path;
+
+    // 指定文件上传后的目录
+    var target_path = './public/upload/' + req.file.filename;
+
+    // 移动文件
+    fs.rename(tmp_path, target_path, function(err) {
+      if (err) throw err;
+      // 删除临时文件夹文件,
+      fs.unlink(tmp_path, function () {
+        if (err) throw err;
+
+        var sql = "update user_list set user_avatar='" + hostPort + "/" + req.file.path + "'";
+        var sqlEnd = " where user_id=" + req.body.user_id;
+        sql += sqlEnd;
+
+        var fileInfo = {
+          path : req.file.path,
+          filename : req.file.filename,
+          size : req.file.size,
+          mimeType : req.file.mimetype,
+          allPath : hostPort + '/' + req.file.path
+        };
+        PgOpr(res,sql,fileInfo);
+      });
+    })
+
+  },
+
   GetBannerWeb : function(req,res,next){
     var result = {
       code : 200,

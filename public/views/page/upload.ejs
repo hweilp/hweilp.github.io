@@ -1,0 +1,103 @@
+<%- include('../tpl/layout/head_top'); %>
+<!--<link rel="stylesheet" href="/Platform/css/home/index.css"/>-->
+<style type='text/css'>
+  .row{
+    width: 1200px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  form{
+    width: 400px;
+    height: 320px;
+    border:1px solid #D0D0D0;
+    overflow: hidden;
+    position: absolute;
+    right:0;
+    left:0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+  }
+</style>
+
+<%- include('../tpl/layout/head_bot'); %>
+<%- include('../tpl/layout/header'); %>
+<div class="upload">
+  <div class="row">
+    <form>
+
+      <div class="group">
+        <div>用户头像上传</div>
+      </div>
+      <div class="group">
+        <input type="text" name="user_id" id="userId" placeholder="用户id">
+      </div>
+      <div class="group">
+        <input id="photo1" name="file1" type="file" onchange="fileChange()">
+        <img src="" alt="" id="photo1Img">
+      </div>
+      <div class="group">
+        <input type="submit" value="上传">
+        <input type="button" value='上传' id="butSub">
+      </div>
+    </form>
+  </div>
+  
+</div>
+<script type="application/javascript">
+  $('.upload').height( document.body.offsetHeight - 100 );
+  function fileChange() {
+    var cardPhoto = document.getElementById('photo1');
+    var files = cardPhoto.files[0];
+//    this.addBankForm.file1 = files.name;
+    var that = this;
+    var reader = new FileReader();
+    reader.onload = function (event) {
+      $('#photo1Img').attr('src',event.target.result);
+    };
+    reader.readAsDataURL(files);
+  }
+  $('#butSub').click(function () {
+    var formData = new FormData();
+    var cardPhoto1 = document.getElementById('photo1');
+    var files1 = cardPhoto1.files[0];
+    formData.append('user_id',$('#userId').val());
+    formData.append('file',files1);
+    $.ajax({
+      type : 'post',
+      url: "/api/upload",
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+      success : function (res) {
+        if(res.code == 2000){
+          layer.msg(res.msg);
+          window.location.href = '/user/list';
+        }else {
+          layer.msg(res.msg);
+        }
+      },
+      error : function (err) {
+        console.log(err)
+      }
+    })
+  })
+</script>
+<%- include('../tpl/layout/footer'); %>
+<%- include('../tpl/layout/footer_script'); %>
+<%- include('../tpl/layout/foot'); %>

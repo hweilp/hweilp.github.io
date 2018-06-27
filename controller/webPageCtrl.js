@@ -15,6 +15,10 @@ var WebPageCtrl = {
     res.render('page/userDetail')
   },
 
+  UploadPage:function (req, res) {
+    res.render('page/upload')
+  },
+
   ErrorPage : function (req,res) {
     res.render('page/error')
   }
