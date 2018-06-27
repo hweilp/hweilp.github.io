@@ -13,7 +13,7 @@ ul, ol , li { list-style: none; }
 input{ -wekit-box-shadow:0 0 0 1000px white inset;}
 input[type=button]{background: rgba(216, 52, 72, 1);color: white;cursor: pointer;}
 input[type=button]:active{  background:  rgba(216, 52, 72, .9);  }
-
+input.input-disabled{background: #eee;}
 body{
   background:rgb(240, 241, 242);
 }

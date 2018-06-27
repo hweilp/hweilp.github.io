@@ -23,7 +23,7 @@ router.get('/', WebPageCtrl.IndexPage);
 router.get('/register', WebPageCtrl.RegisterPage);
 router.get('/login', WebPageCtrl.LoginWebPage);
 router.get('/user/list', WebPageCtrl.UserListPage);
-router.get('/user/detail/:id', WebPageCtrl.UserDetailPage);
+router.get('/user/detail', WebPageCtrl.UserDetailPage);
 
 // api
 router.post('/api/register', ApiCtrl.Register);
@@ -31,6 +31,7 @@ router.get('/api/login', ApiCtrl.Login);
 router.get('/api/user/list', ApiCtrl.UserList);
 router.get('/api/user/detail/:id', ApiCtrl.UserDetail);
 router.post('/api/user/delete', ApiCtrl.UserDelete);
+router.post('/api/user/edit', ApiCtrl.UserEdit);
 
 router.get('/api/banner', ApiCtrl.GetBannerWeb);
 // router.get('/api/personal_recommend', Auth, ApiCtrl.getPersonal);

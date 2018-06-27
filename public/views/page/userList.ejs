@@ -84,7 +84,8 @@
   })
 
   $(".row").on("click",".edit",function(){
-    window.location.href = '/user/detail/'+ $(this).attr('data-id');
+//    window.location.href = '/user/detail/'+ $(this).attr('data-id');
+    window.location.href = '/user/detail?id='+ $(this).attr('data-id');
   });
   $(".row").on("click",".delete",function(){
     console.log($(this).attr('data-id'))

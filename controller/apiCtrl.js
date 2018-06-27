@@ -31,13 +31,33 @@ var ApiCtrl = {
 
   UserList: function (req,res) {
     var sql = "SELECT * FROM user_list ";
-    if(req.query.id){
-      sql += " where user_id = " + req.query.id
+    if(JSON.stringify(req.query) !== "{}"){
+      // sql += " where user_id = " + req.query.id;
+      var count = 1;
+      sql += ' where ';
+      for(var name in req.query){
+        if (count == Object.keys(req.query).length){
+          if(!isNaN(req.query[name])){
+            sql += name + "='" + req.query[name] + "'";
+          }else {
+            sql += name + "=" + req.query[name]
+          }
+
+        }else {
+          if(!isNaN(req.query[name])){
+            sql += name + "='" + req.query[name] + "'" + " AND ";
+          }else {
+            sql += name + "=" + req.query[name] + " AND ";
+          }
+        }
+        count++;
+
+      }
     }
+
     PgOpr(res,sql);
   },
   UserDetail : function (req, res) {
-
     var sql = "SELECT * FROM user_list ";
     if(req.params.id){
       sql += " where user_id = " + req.params.id
@@ -47,6 +67,31 @@ var ApiCtrl = {
   UserDelete : function (req, res) {
     var user_id = req.body.id;
     var sql = 'delete from user_list where user_id=' + user_id;
+    PgOpr(res,sql);
+  },
+  UserEdit : function (req, res) {
+    if(JSON.stringify(req.body) == "{}"){
+      apiConfig.error(res, 1005);
+      return;
+    }else {
+      if(!req.body.user_id || req.body.user_id == ''){
+        apiConfig.error(res, 1006);
+        return;
+      }
+      var sql = "update user_list set ";
+      var sqlEnd = " where user_id= " + req.body.user_id;
+      var count = 1;
+      for(var name in req.body){
+        if(count == Object.keys(req.body).length){
+          sql += name + "='" + req.body[name] + "'";
+
+        }else {
+          sql += name + "='" + req.body[name] + "',";
+        }
+        count++;
+      }
+      sql += sqlEnd;
+    }
     PgOpr(res,sql);
   },
   GetBannerWeb : function(req,res,next){
