@@ -1,4 +1,22 @@
 <header class="c-container c-box">
+  <div class="header-info">
+    <div class="c-content clear-fix">
+      <div class="fl">
+        <span>电话 ： <%= comData.tel %></span> &nbsp;
+        <span>QQ ：<%= comData.QQ %> </span>
+      </div>
+      <div class="fr">
+        <% if(userData && userData.user_name) { %>
+        <span>用户名: <%= userData.user_name %></span>
+        <a href="/api/loginOut">退出</a>
+        <%} else {%>
+        <a href="/login">登录</a>
+        <%}%>
+
+      </div>
+    </div>
+
+  </div>
   <div class="c-content clear-fix">
     <div class="logo fl">
       <a href="index.html"><img src="/images/logo.png" alt=""></a>
@@ -12,5 +30,11 @@
       <!--<li class="fl"><a href="pages/other.html">其他</a></li>-->
     </ul>
   </div>
+  <script type="application/javascript">
+//    <!--var userData = {};-->
+    <!--var json = JSON.parse('');-->
+    <!--console.log(json)-->
+
+  </script>
 
 </header>

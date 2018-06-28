@@ -24,6 +24,11 @@ var apiConfig = {
       code : 400,
       msg:'数据库连接失败'
     },
+    acPwErr : {
+      errCode:1010,
+      code : 4000,
+      msg:'账号或密码错误'
+    },
     noAuth : {
       errCode:1001,
       code : 4001,

@@ -185,7 +185,8 @@
       success:function (res) {
         console.log(res);
         if(res.code == 2000){
-          layer.msg(res.msg)
+          layer.msg(res.msg);
+          window.location.reload();
         }else {
           layer.msg(res.msg)
         }

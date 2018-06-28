@@ -62,17 +62,44 @@
   <form>
     <div class="fileds"><h4>登录</h4></div>
 
-    <div class="fileds"><input type="text" placeholder="用户名"></div>
+    <div class="fileds"><input type="text" id="userName" placeholder="用户名"></div>
 
-    <div class="fileds"><input type="password" placeholder="请输入密码"></div>
+    <div class="fileds"><input type="password" id="password" placeholder="请输入密码"></div>
 
 
-    <div class="fileds"><input type="button" value="登录"></div>
+    <div class="fileds"><input type="button" id="subBtn" value="登录"></div>
 
   </form>
 </div>
 <script type="application/javascript">
   $('.register').height( document.body.offsetHeight - 100 );
+
+  $('#subBtn').click(function () {
+    var data = {
+      user_name : $('#userName').val(),
+      password : $('#password').val()
+    }
+    $.ajax({
+      type : 'post',
+      url : '/api/login',
+      data : data ,
+      success : function (res) {
+        console.log(res);
+        if(res.code == 2000){
+          layer.msg(res.msg);
+          setTimeout(function () {
+            window.location.href = '/'
+          },1000)
+        }else {
+          layer.msg(res.msg)
+        }
+      },
+      error : function (err) {
+        console.log(err)
+      }
+    })
+  })
+
 </script>
 
 

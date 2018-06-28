@@ -6,6 +6,17 @@ app.use(logger('dev')); //设置为开发者模式，显示日志
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+// 使用 session 中间件
+app.use(session({
+  secret : 'secret', // 对session id 相关的cookie 进行签名
+  resave : true,
+  saveUninitialized: false, // 是否保存未初始化的会话
+  name : "SESSION_ID", // 设置 session 名
+  cookie : {
+    maxAge : 1000  * 60 * 60 * 2  // 设置 session 的有效时间，单位毫秒 毫秒 * 秒 * 分 * 时 1000  * 60 * 60 * 2 两小时
+  }
+}));
 
 require('babel-register');
 

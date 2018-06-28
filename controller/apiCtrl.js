@@ -1,4 +1,5 @@
 var apiConfig = require('./apiConfig');
+var pgPool = require('../db/connectionPool');
 var PgOpr = require('../db/dbOpr');
 var fs = require('fs');
 
@@ -29,7 +30,43 @@ var ApiCtrl = {
     PgOpr(res,sql,'register');
   },
   Login : function (req, res) {
+    if(JSON.stringify(req.body) == "{}"){
+      apiConfig.error(res, 1005);
+      return;
+    }else {
+      var userName = req.body.user_name;
+      var password = req.body.password;
+      pgPool.connect(function (err, client, done) {
+        if (err) {
+          res.send(err);
+          return console.log('数据库连接出错', err);
+        }
+        var sql = "SELECT user_name,user_id,user_mobile,user_avatar,status from user_list where user_name='"+userName+"' and password='"+password +"'";
+        console.log(sql);
+        client.query(sql, function (err, result) {
+          if (err) {
+            apiConfig.error(res,1010)
+          }else {
+            if(result.rows.length == 0){
+              apiConfig.error(res,1010);
+              return;
+            }
+            var dataBase = result.rows[0];
+            req.session.SESSION_ID = Date.now().toString() + dataBase.user_id;
+            req.session.SESSION_USERID = dataBase.user_id;
+            apiConfig.success(res,2000,dataBase)
+          }
+        })
+      })
+    }
 
+  },
+  LoginOut:function (req,res) {
+    delete req.session.SESSION_ID;
+    delete req.session.SESSION_USERID;
+    res.clearCookie('SESSION_ID');
+    req.session.destroy();
+    res.redirect('/');
   },
 
   UserList: function (req,res) {

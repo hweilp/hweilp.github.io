@@ -25,16 +25,17 @@ router.get('/', WebPageCtrl.IndexPage);
 router.get('/register', WebPageCtrl.RegisterPage);
 router.get('/login', WebPageCtrl.LoginWebPage);
 router.get('/user/list', WebPageCtrl.UserListPage);
-router.get('/user/detail', WebPageCtrl.UserDetailPage);
+router.get('/user/detail',WebPageCtrl.UserDetailPage);
 router.get('/upload', WebPageCtrl.UploadPage);
 
 // api
 router.post('/api/register', ApiCtrl.Register);
-router.get('/api/login', ApiCtrl.Login);
-router.get('/api/user/list', ApiCtrl.UserList);
-router.get('/api/user/detail/:id', ApiCtrl.UserDetail);
-router.post('/api/user/delete', ApiCtrl.UserDelete);
-router.post('/api/user/edit',UploadMidd.single('file'), ApiCtrl.UserEdit);
+router.post('/api/login', ApiCtrl.Login);
+router.get('/api/loginOut', ApiCtrl.LoginOut);
+router.get('/api/user/list',Auth,  ApiCtrl.UserList);
+router.get('/api/user/detail/:id', Auth,  ApiCtrl.UserDetail);
+router.post('/api/user/delete',Auth,  ApiCtrl.UserDelete);
+router.post('/api/user/edit',Auth, UploadMidd.single('file'), ApiCtrl.UserEdit);
 
 router.post('/api/upload', UploadMidd.single('file'),  ApiCtrl.FileUpload);
 
