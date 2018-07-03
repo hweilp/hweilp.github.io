@@ -1,58 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="314d3fa8-0972-46ea-ac7a-8e54aced3f46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/logo2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/ApiCtor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/WebPageCtor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/middleware/auth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/middleware/com.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/middleware/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/com.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/banner/banner_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/banner/banner_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/banner/banner_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/error_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/recommend/20180530140301.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/recommend/20180530140401.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/recommend/20180530163501.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/recommend/20180530171901.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/com.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/json/banner.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/json/friendship_link.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/json/hot_articles.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/json/lastest_release.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/json/personal_recommend.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/json/technical_label.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/calendar/FlexoCalendar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/calendar/flexoCalendar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/jquery-1.7.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/storage/drivers/cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/storage/drivers/localStorage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/storage/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/css/swiper.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/css/swiper.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/js/swiper.esm.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/js/swiper.esm.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/js/swiper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/js/swiper.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/swiper/js/swiper.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/error.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/web.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="314d3fa8-0972-46ea-ac7a-8e54aced3f46" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -68,7 +17,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="540">
               <caret line="36" column="49" lean-forward="false" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
               <folding />
             </state>
@@ -245,16 +194,15 @@
       <workItem from="1527815510164" duration="5325000" />
       <workItem from="1527840134402" duration="4159000" />
       <workItem from="1530172587410" duration="1133000" />
-      <workItem from="1530176378551" duration="75000" />
+      <workItem from="1530176378551" duration="280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43683000" />
+    <option name="totallyTimeSpent" value="43888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="88" y="58" width="1315" height="742" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24497682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -262,7 +210,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42194745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42194745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -533,7 +481,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="540">
           <caret line="36" column="49" lean-forward="false" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
           <folding />
         </state>
