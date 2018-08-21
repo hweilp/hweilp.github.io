@@ -1,6 +1,6 @@
 var WebPageCtrl = {
   IndexPage : function (req, res) {
-    res.render('page/index')
+    res.render('index')
   },
   RegisterPage : function (req, res) {
     res.render('page/register')

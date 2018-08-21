@@ -68,11 +68,11 @@ var ApiCtrl = {
               return;
             }
             var dataBase = result.rows[0];
-            req.session.SESSION_ID = Date.now().toString() + dataBase.user_id;
-            req.session.SESSION_USERID = dataBase.user_id;
-            console.log(req.session)
+            const Session_id =  Date.now().toString() + dataBase.user_id
+            res.cookie('SESSION_ID', Session_id, {maxAge: 1000 * 60 * 60})
+            req.session.SESSION_ID = Session_id
             const responseData = {
-              session_id: req.session.SESSION_ID,
+              session_id: Session_id,
               user_name: dataBase.user_name
             }
             apiConfig.success(res, 2000, responseData)
@@ -83,16 +83,8 @@ var ApiCtrl = {
 
   },
   LoginOut:function (req,res) {
-    delete req.session.SESSION_ID;
-    delete req.session.SESSION_USERID;
-    res.clearCookie('SESSION_ID');
-    req.session.destroy();
-    // res.redirect('/');
-    const responseData = {
-
-    }
+    req.session.SESSION_ID = null
     apiConfig.success(res, 2000)
-
   },
 
   UserList: function (req,res) {

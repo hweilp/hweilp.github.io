@@ -42,7 +42,7 @@ router.get('/upload', WebPageCtrl.UploadPage);
 router.post('/api/register', ApiCtrl.Register);
 router.post('/api/login', ApiCtrl.Login);
 router.get('/api/loginOut', ApiCtrl.LoginOut);
-router.get('/api/user/list', ApiCtrl.UserList);
+router.get('/api/user/list', Auth, ApiCtrl.UserList);
 router.get('/api/user/detail/:id', Auth,  ApiCtrl.UserDetail);
 router.post('/api/user/delete',Auth,  ApiCtrl.UserDelete);
 router.post('/api/user/edit',Auth, UploadMidd.single('file'), ApiCtrl.UserEdit);
