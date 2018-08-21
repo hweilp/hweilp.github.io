@@ -21,13 +21,29 @@ var ApiCtrl = {
 
     var field = [];
     var values = [];
-    for(var name in req.body){
-      field.push(name);
-      values.push("'" + req.body[name] + "'");
+    var data = {
+      user_name: req.body.user_name,
+      password: req.body.password
     }
+    for(var name in data){
+      field.push(name);
+      values.push("'" + data[name] + "'");
+    }
+    var cheUserNameSql = "SELECT user_name,user_id from user_list where user_name='" + data.user_name + "'"
     var sql = "INSERT INTO user_list (" + field.join(",") + ") VALUES (" + values.join(",") + ")";
-
-    PgOpr(res,sql,'register');
+    pgPool.connect(function (err, client, done) {
+        client.query(cheUserNameSql, function (err, result) {
+          if (err) {
+            apiConfig.error(res,1000)
+          } else {
+            if(result.rows.length == 0){
+              PgOpr(res,sql,'register');
+            } else {
+              apiConfig.error(res, 1008)
+            }
+          }
+        })
+    })
   },
   Login : function (req, res) {
     if(JSON.stringify(req.body) == "{}"){
@@ -42,10 +58,10 @@ var ApiCtrl = {
           return console.log('数据库连接出错', err);
         }
         var sql = "SELECT user_name,user_id,user_mobile,user_avatar,status from user_list where user_name='"+userName+"' and password='"+password +"'";
-        console.log(sql);
+        // console.log(sql);
         client.query(sql, function (err, result) {
           if (err) {
-            apiConfig.error(res,1010)
+            apiConfig.error(res,1000)
           }else {
             if(result.rows.length == 0){
               apiConfig.error(res,1010);
@@ -54,7 +70,12 @@ var ApiCtrl = {
             var dataBase = result.rows[0];
             req.session.SESSION_ID = Date.now().toString() + dataBase.user_id;
             req.session.SESSION_USERID = dataBase.user_id;
-            apiConfig.success(res,2000,dataBase)
+            console.log(req.session)
+            const responseData = {
+              session_id: req.session.SESSION_ID,
+              user_name: dataBase.user_name
+            }
+            apiConfig.success(res, 2000, responseData)
           }
         })
       })
@@ -66,11 +87,16 @@ var ApiCtrl = {
     delete req.session.SESSION_USERID;
     res.clearCookie('SESSION_ID');
     req.session.destroy();
-    res.redirect('/');
+    // res.redirect('/');
+    const responseData = {
+
+    }
+    apiConfig.success(res, 2000)
+
   },
 
   UserList: function (req,res) {
-    var sql = "SELECT * FROM user_list ";
+    var sql = "SELECT id,user_name,user_id,user_mobile,user_avatar,status,created_at FROM user_list ";
     if(JSON.stringify(req.query) !== "{}"){
       // sql += " where user_id = " + req.query.id;
       var count = 1;
