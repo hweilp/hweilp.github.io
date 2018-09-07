@@ -28,7 +28,7 @@ var PgOpr = function (res,sql,oprCode) {
           }
           // 特别操作 根据对数据库操作 确定返回数据
           if(oprCode == 'register'){
-            apiConfig.success(res,2001);
+            apiConfig.success(res,2000);
             return
           }
         }else{

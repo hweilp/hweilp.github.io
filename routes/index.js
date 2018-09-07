@@ -22,9 +22,9 @@ router.use(function (req,res,next){
 
 //设置跨域访问
 router.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+    res.header("Access-Control-Allow-Headers", "X-Requested-With")
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
     res.header("X-Powered-By",' 3.2.1')
     next();
 });
@@ -43,7 +43,7 @@ router.post('/api/register', ApiCtrl.Register);
 router.post('/api/login', ApiCtrl.Login);
 router.get('/api/loginOut', ApiCtrl.LoginOut);
 router.get('/api/user/list', Auth, ApiCtrl.UserList);
-router.get('/api/user/detail/:id', Auth,  ApiCtrl.UserDetail);
+router.get('/api/user/detail', Auth,  ApiCtrl.UserDetail);
 router.post('/api/user/delete',Auth,  ApiCtrl.UserDelete);
 router.post('/api/user/edit',Auth, UploadMidd.single('file'), ApiCtrl.UserEdit);
 

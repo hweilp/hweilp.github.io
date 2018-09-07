@@ -109,6 +109,8 @@ var ApiCtrl = {
     var sql = "SELECT * FROM user_list ";
     if(req.params.id){
       sql += " where user_id = " + req.params.id
+    } else {
+      sql += " where user_id = " + req.query.id
     }
     PgOpr(res,sql);
   },
@@ -130,7 +132,6 @@ var ApiCtrl = {
       }
 
       if(typeof req.file == "undefined"){
-        console.log(2)
         for(var name in req.body){
           if(req.body[name] == 'undefined'){
             delete req.body[name];
