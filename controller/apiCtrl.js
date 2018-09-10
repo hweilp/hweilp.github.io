@@ -120,8 +120,6 @@ var ApiCtrl = {
     PgOpr(res,sql);
   },
   UserEdit : function (req, res) {
-    var hostPort = req.headers.origin;
-
     if(JSON.stringify(req.body) == "{}"){
       apiConfig.error(res, 1005);
       return;
@@ -130,73 +128,28 @@ var ApiCtrl = {
         apiConfig.error(res, 1006);
         return;
       }
-
-      if(typeof req.file == "undefined"){
-        for(var name in req.body){
-          if(req.body[name] == 'undefined'){
-            delete req.body[name];
-          }
+      var params = req.body;
+      params.user_id = parseInt(params.user_id)
+      var sql = "update user_list set ";
+      var sqlEnd = " where user_id=" + req.body.user_id;
+      var count = 1;
+      for(var name in params){
+        if(count == Object.keys(params).length){
+          sql += name + "='" + params[name] + "'";
+        }else {
+          sql += name + "='" + params[name] + "',";
         }
-
-        var params = req.body;
-        var sql = "update user_list set ";
-        var sqlEnd = " where user_id=" + req.body.user_id;
-        var count = 1;
-        for(var name in params){
-          if(count == Object.keys(params).length){
-            sql += name + "='" + params[name] + "'";
-          }else {
-            sql += name + "='" + params[name] + "',";
-          }
-          count++;
-        }
-        sql += sqlEnd;
-        PgOpr(res,sql);
-      }else {
-        //获得文件的临时路径
-        var tmp_path = req.file.path;
-
-        // 指定文件上传后的目录
-        var target_path = './public/upload/' + req.file.filename;
-
-        // 移动文件
-        fs.rename(tmp_path, target_path, function(err) {
-          if (err) throw err;
-          // 删除临时文件夹文件,
-          fs.unlink(tmp_path, function () {
-            if (err) throw err;
-
-            var params = req.body;
-            params.user_avatar = hostPort + "/" + req.file.path;
-            var sql = "update user_list set ";
-            var sqlEnd = " where user_id=" + req.body.user_id;
-            var count = 1;
-            for(var name in params){
-              if(count == Object.keys(params).length){
-                sql += name + "='" + params[name] + "'";
-              }else {
-                sql += name + "='" + params[name] + "',";
-              }
-              count++;
-            }
-            sql += sqlEnd;
-            PgOpr(res,sql);
-          });
-        })
+        count++;
       }
-
-
+      sql += sqlEnd;
+      PgOpr(res, sql);
     }
   },
 
 
   FileUpload: function (req, res) {
 
-    var hostPort = req.headers.origin;
-    if(!req.body.user_id || req.body.user_id == ''){
-      apiConfig.error(res,1005);
-      return;
-    }
+    var hostPort = req.headers.host;
 
     //获得文件的临时路径
     var tmp_path = req.file.path;
@@ -211,18 +164,14 @@ var ApiCtrl = {
       fs.unlink(tmp_path, function () {
         if (err) throw err;
 
-        var sql = "update user_list set user_avatar='" + hostPort + "/" + req.file.path + "'";
-        var sqlEnd = " where user_id=" + req.body.user_id;
-        sql += sqlEnd;
-
         var fileInfo = {
           path : req.file.path,
           filename : req.file.filename,
           size : req.file.size,
           mimeType : req.file.mimetype,
-          allPath : hostPort + '/' + req.file.path
+          allPath : 'http://' + hostPort + '/' + req.file.path
         };
-        PgOpr(res,sql,fileInfo);
+        apiConfig.success(res, 2000, fileInfo);
       });
     })
 

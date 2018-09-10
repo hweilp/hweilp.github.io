@@ -97,7 +97,7 @@ var apiConfig = {
     res.send(apiConfig.results);
   },
 
-  error : function (res,errCode,err) {
+  error : function (res, errCode, err) {
     //params  res 请求返回 errCode(number) 错误代码 err 数据库连接错误
 
     // 设定默认返回数据
@@ -111,6 +111,11 @@ var apiConfig = {
           apiConfig.results.code = apiConfig.errTips[name].code;
           apiConfig.results.msg = apiConfig.errTips[name].msg;
         }
+      }
+    }
+    if (err.routine === '_bt_check_unique') {
+      if (err.detail.indexOf('user_mobile') !== -1) {
+        apiConfig.results.msg = '手机号重复'
       }
     }
     res.status(200);

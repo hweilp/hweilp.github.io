@@ -11,16 +11,14 @@ var PgOpr = function (res,sql,oprCode) {
     }
     client.query(sql,function (err,result) {
       if(err) {
-        // console.log(err);
         // if(err.detail.indexOf('user_name') != -1 && err.routine.indexOf('unique')){
         //   apiConfig.error(res,1008);
         // }else {
         //   apiConfig.error(res);
         // }
-        apiConfig.error(res);
+        apiConfig.error(res, 4000, err);
         done(); // 释放连接（将其返回给连接池）
       }else {
-        // console.log(result);
         if(oprCode){
           if(typeof oprCode == 'object'){
             apiConfig.success(res,2000,oprCode);
@@ -42,7 +40,6 @@ var PgOpr = function (res,sql,oprCode) {
           }else {
             apiConfig.success(res,2000);
           }
-
         }
         done();
       }
