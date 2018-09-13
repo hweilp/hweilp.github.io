@@ -113,7 +113,7 @@ var apiConfig = {
         }
       }
     }
-    if (err.routine === '_bt_check_unique') {
+    if (err && err.routine === '_bt_check_unique') {
       if (err.detail.indexOf('user_mobile') !== -1) {
         apiConfig.results.msg = '手机号重复'
       }
