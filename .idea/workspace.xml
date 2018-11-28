@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="314d3fa8-0972-46ea-ac7a-8e54aced3f46" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/json/hot_articles.json" afterPath="$PROJECT_DIR$/static/json/hot_articles.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/json/lastest_release.json" afterPath="$PROJECT_DIR$/static/json/lastest_release.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/json/personal_recommend.json" afterPath="$PROJECT_DIR$/static/json/personal_recommend.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -93,18 +92,28 @@
       <file leaf-file-name="lastest_release.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/json/lastest_release.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="142">
               <caret line="18" column="6" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="18" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personal_recommend.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="personal_recommend.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/json/personal_recommend.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            <state relative-caret-position="238">
+              <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -135,8 +144,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state relative-caret-position="267">
+              <caret line="39" column="31" lean-forward="true" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -189,7 +198,6 @@
         <option value="$PROJECT_DIR$/public/views/index.html" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/index.js.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/static/css/com.css" />
         <option value="$PROJECT_DIR$/static/js/com.js" />
@@ -199,6 +207,7 @@
         <option value="$PROJECT_DIR$/static/json/hot_articles.json" />
         <option value="$PROJECT_DIR$/static/json/lastest_release.json" />
         <option value="$PROJECT_DIR$/static/json/personal_recommend.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -332,12 +341,12 @@
       <workItem from="1527840134402" duration="4159000" />
       <workItem from="1530172587410" duration="1133000" />
       <workItem from="1530176378551" duration="280000" />
-      <workItem from="1543394270820" duration="3157000" />
+      <workItem from="1543394270820" duration="3352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47045000" />
+    <option name="totallyTimeSpent" value="47240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -551,14 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -576,14 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1284">
           <caret line="127" column="10" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="127" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -645,6 +638,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="39" column="31" lean-forward="true" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/json/hot_articles.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -655,7 +656,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/json/lastest_release.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="142">
           <caret line="18" column="6" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="18" selection-end-column="6" />
           <folding />
         </state>
@@ -663,8 +664,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/json/personal_recommend.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="238">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
           <folding />
         </state>
       </provider>
