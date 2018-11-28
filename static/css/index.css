@@ -183,3 +183,15 @@
 .link a:hover{
   color: rgba(0, 180, 255,1);
 }
+
+.account{
+  /*background: white;*/
+}
+
+.account-info{
+  background: white;
+  padding: 10px 0;
+}
+.account .info-item{
+  padding: 0 20px;
+}
