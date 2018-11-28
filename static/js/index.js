@@ -8,7 +8,7 @@ $(document).ready(function () {
 					var bannerList = res.banner_list;
 					var SwiperListHtml = '';
 					for (var i = 0; i < bannerList.length; i++){
-						SwiperListHtml += '<div class="swiper-slide"><a href="'+ bannerList[i].url +'"><img src="'+ bannerList[i].imgUrl +'" alt="' + bannerList[i].title  +'"></a></div>'
+						SwiperListHtml += '<div class="swiper-slide"><a href="'+ bannerList[i].url +'"><img src="'+ bannerList[i].imgUrl +'" alt=""></a></div>'
 					}
 
 
